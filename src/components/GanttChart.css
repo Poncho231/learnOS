@@ -1,0 +1,45 @@
+/* src/components/GanttChart.css */
+
+.gantt-row {
+  position: relative;
+  height: 80px;
+  margin: 20px 0 40px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+}
+
+.gantt-bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: 2px 0;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.15);
+  animation: fadeSlide .4s ease-out;
+}
+
+.gantt-axis {
+  position: absolute;
+  bottom: -24px;
+  font-size: .75em;
+  color: var(--text-secondary);
+  width: 100%;
+  pointer-events: none;
+}
+
+.gantt-axis span {
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

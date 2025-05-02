@@ -1,38 +1,44 @@
+/*******************************************************************************
+ * File: src/App.css
+ * Purpose: Main application styling (using CSS Variables).
+ *******************************************************************************/
+/* Body styles are now primarily in index.css */
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+/* Navigation is handled by Nav.css */
+/* .main-nav styles removed from here */
+
+.content {
+  flex-grow: 1; /* Allows main content to fill available space */
+  padding: var(--spacing-xl); /* Use variable */
+  max-width: 1000px; /* Limit content width for readability */
+  margin: var(--spacing-lg) auto; /* Center content area, use variables */
+  background-color: var(--bg-primary); /* Use variable */
+  box-shadow: var(--box-shadow); /* Use variable */
+  border-radius: var(--border-radius); /* Use variable */
+  border: 1px solid var(--border-color); /* Add subtle border */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Footer (can be extracted to its own component/CSS if it grows) */
+.footer {
+  background-color: var(--bg-dark); /* Use variable */
+  color: var(--text-muted); /* Use variable for lighter text */
+  text-align: center;
+  padding: var(--spacing-lg); /* Use variable */
+  font-size: 0.85rem; /* Slightly larger */
+  margin-top: auto; /* Pushes footer to the bottom */
+  border-top: 1px solid var(--border-color); /* Subtle top border */
 }
+
+.footer p {
+    margin: 0.3rem 0;
+}
+
+/* Ensure main layout provides space for content */
+/* This is now handled better by <main> tag in Layout.js and its padding in index.css */
+/* Removing redundant padding application here */

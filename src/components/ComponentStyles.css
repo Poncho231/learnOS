@@ -1,0 +1,111 @@
+/*******************************************************************************
+ * File: src/components/ComponentStyles.css
+ * Purpose: Shared styling for OS concept components.
+ *******************************************************************************/
+
+ .component-container {
+    padding: 1rem;
+  }
+  
+  .component-container h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: #0056b3;
+  }
+  
+  .component-container h3 {
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .component-container h4 {
+      color: #555;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+  }
+  
+  
+  .component-container section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 5px;
+  }
+  
+  .component-container ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+  
+  .component-container li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .component-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+  }
+  
+  .component-container th,
+  .component-container td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+  }
+  
+  .component-container th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+  }
+  
+  .component-container tr:nth-child(even) {
+      background-color: #f9f9f9;
+  }
+  
+  .algorithm-card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      background-color: #f9f9f9;
+  }
+  
+  .algorithm-card h4 {
+      margin-top: 0;
+      color: #0056b3;
+  }
+  
+  .interactive-placeholder {
+      border: 2px dashed #007bff;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      background-color: #e7f3ff;
+      border-radius: 5px;
+      text-align: center;
+  }
+  .interactive-placeholder h4 {
+      margin-top: 0;
+      color: #0056b3;
+  }
+  .interactive-placeholder button {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+  }
+  .interactive-placeholder button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+  }
+  .process-circle.running { animation:pulse 1s infinite alternate; }
+
+@keyframes pulse { from { box-shadow:0 0 5px 2px rgba(0,255,0,.5); }
+                   to   { box-shadow:0 0 15px 5px rgba(0,255,0,.9);} }
+                   .glossary{ list-style:disc; margin-left:20px; }
+                   .glossary li{ margin:.3rem 0; }
+                   section{ scroll-margin-top:90px; }
+                   h3,h4{ scroll-margin-top:100px; }
+                   

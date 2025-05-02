@@ -1,0 +1,70 @@
+.cpu-vis { text-align:center; margin-top:1rem; }
+
+.lane { display:flex; justify-content:center; align-items:center; gap:14px; margin:.4rem 0; }
+.label{ min-width:95px; text-align:right; font-weight:600; }
+
+.circle{
+  width:70px; height:70px; border-radius:50%; border:3px solid #333;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:#fafafa; position:relative;
+}
+.circle small{ position:absolute; bottom:4px; font-size:.65em; }
+
+.circle.running{ animation:pulse 1s infinite alternate; border-color:#28a745; }
+.circle.done   { opacity:.35; }
+
+@keyframes pulse{
+  from{ box-shadow:0 0 5px 2px rgba(40,167,69,.5); }
+  to  { box-shadow:0 0 15px 5px rgba(40,167,69,.9);}
+}
+
+.controls{ margin:.8rem 0; display:flex; justify-content:center; gap:.6rem; flex-wrap:wrap; }
+.controls button{ padding:.5rem 1rem; cursor:pointer; }
+.clock{ font-weight:600; align-self:center; }
+
+.log{
+  max-height:120px; overflow:auto; border:1px solid #ccc; background:#fdfdfd;
+  width:360px; margin:0 auto 1rem; padding:.5rem; text-align:left;
+  font-family:monospace; font-size:.85em;
+}
+.explain{ max-width:650px; margin:0 auto; }
+.legend{ margin-bottom:.4rem; font-size:.85em; display:flex; gap:6px; justify-content:center; }
+.legend .circle{ width:20px; height:20px; border-width:2px; }
+
+.legend{
+    display:flex; justify-content:center; gap:22px;
+    margin:.8rem 0 1.2rem; font-size:.9em; flex-wrap:wrap;
+  }
+  .legend span{ display:flex; align-items:center; gap:6px; }
+  
+  .legend-dot{
+    width:18px; height:18px; border-radius:50%; border:2px solid #333;
+  }
+  .legend-dot.running{ border-color:#28a745; background:rgba(40,167,69,.25); }
+  .legend-dot.done   { opacity:.35; }
+/* neon circles */
+.circle.running{
+  animation:glow 1s ease-in-out infinite alternate;
+}
+@keyframes glow{
+  from{ box-shadow:0 0 5px #16a34a; }
+  to  { box-shadow:0 0 15px 3px #16a34a; }
+}
+
+/* button look */
+.btn{
+  padding:.45rem 1rem;
+  margin:.3rem .4rem;
+  border:none;
+  border-radius:6px;
+  font-weight:600;
+  background:#2563eb;
+  color:#fff;
+  cursor:pointer;
+  transition:background .25s, transform .15s;
+}
+.btn:hover{ background:#1d4ed8; }
+.btn:disabled{ background:#94a3b8; cursor:not-allowed; }
+.btn.reset{ background:#dc2626; }
+.btn.reset:hover{ background:#b91c1c; }
+

@@ -1,0 +1,160 @@
+/* File: src/components/Deadlocks.css */
+/* Enhanced container styling for the Deadlocks page */
+.deadlocks-page {
+    background-color: var(--bg-primary);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .deadlocks-page .page-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto var(--spacing-lg);
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+  }
+  
+  /* Grid Layouts */
+  .content-grid {
+    display: grid;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+  }
+  
+  .content-grid.two-cols {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  
+  .content-grid.three-cols {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .grid-item {
+      background-color: var(--bg-primary);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--border-color);
+  }
+  
+  .grid-item h3,
+  .grid-item h4 {
+      margin-top: 0;
+      margin-bottom: var(--spacing-md);
+      color: var(--primary-color);
+  }
+  
+  /* Icon List for Conditions */
+  .icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .icon-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .icon-list .icon {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    flex-shrink: 0;
+    margin-top: 0.1em;
+  }
+  
+  .icon-list li strong {
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.2em;
+  }
+  
+  /* RAG Placeholder styling */
+  .rag-visual-container {
+      background-color: var(--bg-secondary);
+      padding: var(--spacing-sm);
+      border-radius: calc(var(--border-radius) / 2);
+      margin: var(--spacing-md) 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px dashed var(--border-color);
+  }
+  
+  .rag-placeholder-svg {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+  }
+  
+  /* Safe State styling */
+  .safe-state-importance {
+      font-style: italic;
+      color: var(--text-secondary);
+      font-size: 0.9em;
+      margin-top: var(--spacing-sm);
+  }
+  
+  /* Animation Section Styling */
+  .animation-section {
+      background-color: var(--bg-primary);
+      padding: var(--spacing-lg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      border: 1px solid var(--border-color);
+      margin-top: var(--spacing-xl);
+  }
+  
+  .animation-section h3 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: var(--spacing-sm);
+      color: var(--primary-color);
+  }
+  
+  .animation-section > p {
+      text-align: center;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto var(--spacing-md);
+  }
+  
+  /* Info Cards for Handling Methods */
+  .info-card {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--box-shadow);
+  }
+  
+  .info-card .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--accent-color);
+  }
+  
+  .info-card h4 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    font-size: 1.15rem;
+  }
+  
+  .info-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  

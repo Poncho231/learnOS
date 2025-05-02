@@ -1,13 +1,156 @@
+/*******************************************************************************
+ * File: src/index.css
+ * Purpose: Global baseline styles & CSS Variables.
+ *******************************************************************************/
+
+/* Define CSS Variables for Theming */
+:root {
+  --primary-color: #2563eb; /* Blue */
+  --primary-hover: #1d4ed8;
+  --secondary-color: #10b981; /* Green */
+  --accent-color: #f59e0b; /* Amber */
+  --danger-color: #ef4444; /* Red */
+  --danger-hover: #dc2626;
+
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc; /* Very light gray */
+  --bg-dark: #0f172a;     /* Dark blue/gray for nav/footer */
+  --bg-accent: #e0f2fe;   /* Light blue accent */
+
+  --text-primary: #1e293b;  /* Dark Slate */
+  --text-secondary: #475569; /* Medium Slate */
+  --text-light: #f8fafc;    /* Light text for dark backgrounds */
+  --text-muted: #94a3b8;    /* Lighter gray */
+
+  --border-color: #e2e8f0; /* Light Gray Border */
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  --nav-height: 60px; /* Approximate height for layout calculations */
+}
+
+/* Global Resets and Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  margin: 0; /* Remove default body margin */
+  font-family: var(--font-sans);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Optional: Improve default focus outline */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 4px; /* Consistent rounding */
+}
+
+
+/* Shared Button Styling (Example - can be refined) */
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: var(--spacing-sm) 0;
+  border: none;
+  border-radius: calc(var(--border-radius) / 2); /* Slightly smaller radius for buttons */
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  text-decoration: none; /* For link buttons */
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+  background-color: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn.reset {
+  background-color: var(--danger-color);
+}
+.btn.reset:hover {
+  background-color: var(--danger-hover);
+}
+.btn.secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-light);
+}
+.btn.secondary:hover {
+  background-color: darken(var(--secondary-color), 10%); /* Needs a preprocessor or JS for darken */
+  /* Fallback: */
+  filter: brightness(90%);
+}
+
+
+/* Hero Styles (from original index.css - kept for reference/integration) */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Modern Gradient Example */
+  background: radial-gradient(circle at 30% 10%, #1e40af 0%, var(--bg-dark) 80%);
+  color: var(--text-light);
+  position: relative;
+  overflow: hidden;
+}
+.hero .chip {
+  width: 220px;
+  position: absolute;
+  top: 10%;
+  opacity: .15;
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 4.8rem); /* Slightly larger */
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4); /* Add subtle shadow */
+}
+.hero .tag {
+  letter-spacing: 2.5px; /* Increased spacing */
+  margin-top: var(--spacing-md);
+  opacity: .85;
+  font-size: 1.1rem;
+}
+
+/* Main Content Area */
+main {
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Ensure sections and headings respect sticky nav */
+section, h2, h3, h4, h5, h6 {
+  scroll-margin-top: calc(var(--nav-height) + 1rem); /* Adjust as needed */
 }

@@ -1,0 +1,116 @@
+/* src/components/Processes.css */
+
+.proc-page {
+  padding: var(--spacing-lg);
+}
+
+/* --- Tabs --- */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border-color);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-md);
+}
+.tab {
+  background: var(--bg-secondary);
+  border: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  cursor: pointer;
+  margin-right: var(--spacing-sm);
+  font-weight: 600;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+  transition: background 0.2s;
+}
+.tab:hover { background: var(--bg-primary); }
+.tab.active {
+  background: var(--bg-primary);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- Content Boxes --- */
+.tab-content {
+  background: var(--bg-primary);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+.tab-content details {
+  margin-bottom: var(--spacing-md);
+}
+
+/* --- Simulation Grid --- */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+}
+.vertical-circles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+/* --- Circles --- */
+.mcircle {
+  width: 60px; height: 60px;
+  border: 3px solid var(--text-secondary);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.mcircle.active {
+  transform: scale(1.2);
+  box-shadow: 0 0 10px var(--secondary-color);
+}
+
+/* --- Controls Column --- */
+.controls-col {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+.btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: calc(var(--border-radius)/2);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .1s;
+  color: var(--text-light);
+}
+.btn.primary {
+  background-color: var(--primary-color);
+}
+.btn.secondary {
+  background-color: var(--secondary-color);
+}
+.btn.reset {
+  background-color: var(--danger-color);
+}
+.btn:hover { transform: translateY(-1px); }
+
+/* --- Log --- */
+.log {
+  max-height: 120px;
+  overflow-y: auto;
+  background: var(--bg-secondary);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color);
+  border-radius: calc(var(--border-radius)/2);
+  font-family: var(--font-mono);
+  font-size: .85em;
+}
+
+/* --- Waiting Tip --- */
+.waiting-tip {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm);
+  background: #fef3c7;
+  border: 1px solid #fde68a;
+  border-radius: 4px;
+}
