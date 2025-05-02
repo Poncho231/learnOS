@@ -1,116 +1,268 @@
 /* src/components/Processes.css */
 
-.proc-page {
-  padding: var(--spacing-lg);
+.processes-page {
+  padding: var(--spacing-md); /* Adjust padding */
+  max-width: 900px; /* Contain content */
+  margin: 0 auto;
 }
 
-/* --- Tabs --- */
-.tabs {
-  display: flex;
-  border-bottom: 2px solid var(--border-color);
-  overflow-x: auto;
-  margin-bottom: var(--spacing-md);
-}
-.tab {
-  background: var(--bg-secondary);
-  border: none;
-  padding: var(--spacing-sm) var(--spacing-md);
-  cursor: pointer;
-  margin-right: var(--spacing-sm);
-  font-weight: 600;
-  border-top-left-radius: var(--border-radius);
-  border-top-right-radius: var(--border-radius);
-  transition: background 0.2s;
-}
-.tab:hover { background: var(--bg-primary); }
-.tab.active {
-  background: var(--bg-primary);
-  border-bottom: 2px solid var(--primary-color);
+.processes-page h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: var(--spacing-xl);
 }
 
-/* --- Content Boxes --- */
-.tab-content {
-  background: var(--bg-primary);
-  box-shadow: var(--box-shadow);
+/* --- Shared Card Styling --- */
+.process-card {
+  background-color: var(--bg-primary);
   border-radius: var(--border-radius);
   padding: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
-}
-.tab-content details {
-  margin-bottom: var(--spacing-md);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-color);
+  overflow: hidden; /* Important for internal animations */
 }
 
-/* --- Simulation Grid --- */
-.grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-lg);
+.process-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-hover);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-size: 1.4rem;
 }
-.vertical-circles {
+.process-card h3 span /* For Icon */ {
+    font-size: 1.5rem;
+}
+
+.process-card p {
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+/* --- Specific Card Styles --- */
+
+/* Definition Card */
+.definition-card .analogy {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-sm);
+  border-radius: 4px;
+  margin-top: var(--spacing-md);
+  border-left: 3px solid var(--accent-color);
+}
+
+/* State Diagram Card */
+.state-diagram-card {
+    text-align: center;
+}
+.state-diagram-svg {
+  width: 100%;
+  max-width: 500px; /* Limit size */
+  height: auto;
+  margin: var(--spacing-md) auto;
+  display: block;
+}
+
+.state-circle {
+  cursor: pointer;
+  transition: transform 0.2s ease, stroke-width 0.2s ease;
+}
+.state-node-group text {
+     pointer-events: none; /* Allow clicking through text to circle */
+     user-select: none;
+}
+
+.transition-group text {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    pointer-events: none;
+     user-select: none;
+}
+
+.state-description {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--bg-accent);
+    color: var(--primary-hover);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+    min-height: 2.5em; /* Reserve space */
+}
+.state-description strong {
+    color: var(--primary-color);
+}
+
+
+/* PCB Card */
+.pcb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.pcb-field {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  border-left: 4px solid var(--field-color, var(--secondary-color)); /* Use CSS variable for color */
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
-  align-items: center;
 }
 
-/* --- Circles --- */
-.mcircle {
-  width: 60px; height: 60px;
-  border: 3px solid var(--text-secondary);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.mcircle.active {
-  transform: scale(1.2);
-  box-shadow: 0 0 10px var(--secondary-color);
-}
-
-/* --- Controls Column --- */
-.controls-col {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-md);
-}
-.btn {
-  padding: var(--spacing-sm) var(--spacing-md);
-  border: none;
-  border-radius: calc(var(--border-radius)/2);
+.pcb-field-name {
   font-weight: 600;
-  cursor: pointer;
-  transition: transform .1s;
-  color: var(--text-light);
-}
-.btn.primary {
-  background-color: var(--primary-color);
-}
-.btn.secondary {
-  background-color: var(--secondary-color);
-}
-.btn.reset {
-  background-color: var(--danger-color);
-}
-.btn:hover { transform: translateY(-1px); }
-
-/* --- Log --- */
-.log {
-  max-height: 120px;
-  overflow-y: auto;
-  background: var(--bg-secondary);
-  padding: var(--spacing-sm);
-  border: 1px solid var(--border-color);
-  border-radius: calc(var(--border-radius)/2);
-  font-family: var(--font-mono);
-  font-size: .85em;
+  font-size: 0.9rem;
+  color: var(--text-primary);
 }
 
-/* --- Waiting Tip --- */
-.waiting-tip {
+.pcb-field-value {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Lifecycle Card */
+.lifecycle-columns {
+  display: flex;
+  gap: var(--spacing-xl);
   margin-top: var(--spacing-md);
-  padding: var(--spacing-sm);
-  background: #fef3c7;
-  border: 1px solid #fde68a;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.lifecycle-column {
+  flex: 1;
+  min-width: 250px; /* Minimum width before wrapping */
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+}
+.lifecycle-column h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: var(--spacing-sm);
+}
+.lifecycle-column ol {
+    padding-left: var(--spacing-lg);
+    font-size: 0.9rem;
+}
+.lifecycle-column li {
+    margin-bottom: var(--spacing-sm);
+}
+.lifecycle-icon {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: var(--spacing-md);
+    opacity: 0.7;
+}
+
+/* IPC Card */
+.ipc-methods {
+  display: flex;
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-md);
+   flex-wrap: wrap;
+}
+
+.ipc-method {
+  flex: 1;
+  min-width: 280px;
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+.ipc-method h4 {
+  margin-top: 0;
+  color: var(--primary-color);
+}
+
+.ipc-visualization {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-md);
+  background-color: var(--bg-primary);
+  border: 1px dashed var(--border-color);
   border-radius: 4px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ipc-visualization .viz {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+.ipc-visualization .proc, .ipc-visualization .kernel {
+    border: 1px solid var(--text-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+}
+.ipc-visualization .mem-block {
+    border: 2px dashed var(--secondary-color);
+    padding: var(--spacing-sm);
+     border-radius: 4px;
+     background-color: color-mix(in srgb, var(--secondary-color) 10%, transparent);
+}
+.ipc-visualization .msg {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}
+
+/* Simulation Card */
+.simulation-card .state-diagram-svg {
+    max-width: 350px; /* Smaller diagram for simulation layout */
+}
+.simulation-controls {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start; /* Align diagram and panel */
+    flex-wrap: wrap; /* Wrap on small screens */
+    margin-top: var(--spacing-md);
+}
+.simulation-panel {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+.simulation-log {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    height: 150px; /* Fixed height */
+    overflow-y: auto;
+    border: 1px solid var(--text-muted);
+}
+.simulation-log strong {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    color: var(--secondary-color); /* Or another highlight color */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .processes-page {
+    padding: var(--spacing-sm);
+  }
+  .process-card {
+    padding: var(--spacing-md);
+  }
+  .lifecycle-columns, .ipc-methods, .simulation-controls {
+    flex-direction: column;
+  }
+   .pcb-grid {
+    grid-template-columns: 1fr; /* Stack PCB fields */
+  }
 }

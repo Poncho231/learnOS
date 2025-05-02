@@ -1,0 +1,136 @@
+/* src/components/ProcessQuestGame.css */
+
+.process-quest-game {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .process-quest-game h4 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+  }
+  
+  .game-status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--bg-primary);
+    padding: var(--spacing-md);
+    border-radius: calc(var(--border-radius) / 2);
+  }
+  
+  .status-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: 4px;
+    text-align: center;
+  }
+  .status-item.wide {
+      grid-column: span 2; /* Make progress bar span more columns */
+       /* On smaller screens, revert to single column */
+      @media (max-width: 600px) {
+          grid-column: span 1;
+      }
+  }
+  
+  .status-item span:first-child {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.2rem;
+  }
+  
+  .status-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  
+  /* State-specific colors */
+  .status-new { color: #64748b; } /* Gray */
+  .status-ready { color: #0ea5e9; } /* Sky Blue */
+  .status-running { color: #22c55e; } /* Green */
+  .status-waiting { color: #f59e0b; } /* Amber */
+  .status-terminated { color: #ef4444; } /* Red */
+  
+  
+  .progress-bar-container {
+      width: 90%;
+      height: 20px;
+      background-color: var(--border-color);
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden; /* Ensure progress bar stays within bounds */
+      margin-top: 4px;
+  }
+  
+  .progress-bar {
+      height: 100%;
+      background-color: var(--secondary-color); /* Green progress */
+      border-radius: 10px;
+      transition: width 0.3s ease-in-out;
+  }
+  
+  .progress-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-light);
+      mix-blend-mode: difference; /* Make text visible on progress */
+      white-space: nowrap;
+  }
+  
+  .game-message {
+    min-height: 2.5em; /* Reserve space for message */
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+  .game-message p {
+      margin: 0;
+  }
+  
+  
+  .game-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-md);
+    align-items: center; /* Align buttons and text vertically */
+  }
+  .game-actions .btn {
+      padding: 0.6rem 1.2rem; /* Slightly larger buttons */
+  }
+  
+  /* Specific button colors */
+  .game-actions .btn.success { background-color: var(--secondary-color); }
+  .game-actions .btn.warning { background-color: var(--accent-color); }
+  .game-actions .btn.primary { background-color: var(--primary-color); }
+  .game-actions .btn.reset { background-color: var(--danger-color); }
+  
+  .game-actions .btn:hover {
+      filter: brightness(110%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+  
+  
+  .game-over-message {
+      font-weight: 700;
+      color: var(--primary-color);
+      text-align: center;
+      margin: 0;
+  }
