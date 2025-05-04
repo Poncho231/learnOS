@@ -1,6 +1,6 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Note:
+As part of this project, heavy usage of AI was incorperated.
+The project was crafted using many agents, including Gemini 2.5 Pro, GPT-o3 and Claude 3.7 sonnet thinking.
 
 ## Available Scripts
 
